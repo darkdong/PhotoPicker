@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 import PhotoPicker
 
 class ViewController: UIViewController {
@@ -26,12 +27,28 @@ class ViewController: UIViewController {
 //        let bundle = Bundle(identifier: "com.darkdong.PhotoPicker")
 //        let picker = UIStoryboard(name: "PhotoPicker", bundle: bundle).instantiateInitialViewController() as! PhotoPickerNavigationController
         
-//        let picker = PhotoPickerNavigationController()
-        
         let picker = PhotoPickerNavigationController.nc
         picker.config.rootTitle = "Root Title"
         picker.config.mediaType = .image
+        picker.pickerDelegate = self
         present(picker, animated: true, completion: nil)
     }
 }
 
+extension ViewController: PhotoPickerDelegate {
+    func picker(_ picker: PhotoPickerNavigationController, didSelectAssets assets: [PHAsset]) {
+        //do what you want
+        //...
+        
+        //dismiss picker
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func picker(_ picker: PhotoPickerNavigationController, shouldSelectAsset: PHAsset, selectedAssets: [PHAsset]) -> Bool {
+        //limit number of selections
+        if selectedAssets.count >= 2 {
+            return false
+        }
+        return true
+    }
+}

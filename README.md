@@ -34,6 +34,35 @@ picker.config.mediaType = .image
 present(picker, animated: true, completion: nil)
 ```
 
+### Picker Delegation
+
+```
+class ViewController: UIViewController {
+    func showPicker() {        
+        let picker = PhotoPickerNavigationController.nc 
+        picker.pickerDelegate = self
+        present(picker, animated: true, completion: nil)
+    }
+}
+
+extension ViewController: PhotoPickerDelegate {
+    func picker(_ picker: PhotoPickerNavigationController, didSelectAssets assets: [PHAsset]) {
+        //do what you want
+        //...
+        
+        //dismiss picker
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func picker(_ picker: PhotoPickerNavigationController, shouldSelectAsset: PHAsset, selectedAssets: [PHAsset]) -> Bool {
+        //limit number of selections
+        if selectedAssets.count >= 2 {
+            return false
+        }
+        return true
+    }
+}
+```
 ## License
 
 PhotoPicker is released under the MIT license. [See LICENSE](https://github.com/darkdong/PhotoPicker/blob/master/LICENSE) for details.
