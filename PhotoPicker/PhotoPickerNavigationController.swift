@@ -9,12 +9,12 @@
 import Photos
 
 @objc public protocol PhotoPickerDelegate {
-    func picker(_ picker: PhotoPickerNavigationController, didSelectAssets assets: [PHAsset])
+    @objc func picker(_ picker: PhotoPickerNavigationController, didSelectAssets assets: [PHAsset])
     @objc optional func pickerDidCancel(_ picker: PhotoPickerNavigationController)
     @objc optional func picker(_ picker: PhotoPickerNavigationController, shouldSelectAsset: PHAsset, selectedAssets: [PHAsset]) -> Bool
 }
 
-public struct PickerConfig {
+public class PickerConfig: NSObject {
     // media type
     public var mediaType: PHAssetMediaType?
     
