@@ -9,7 +9,7 @@
 import Photos
 
 @objc public protocol PhotoPickerDelegate {
-    @objc func picker(_ picker: PhotoPickerNavigationController, didSelectAssets assets: [PHAsset])
+    func picker(_ picker: PhotoPickerNavigationController, didSelectAssets assets: [PHAsset])
     @objc optional func pickerDidCancel(_ picker: PhotoPickerNavigationController)
     @objc optional func picker(_ picker: PhotoPickerNavigationController, shouldSelectAsset: PHAsset, selectedAssets: [PHAsset]) -> Bool
 }
