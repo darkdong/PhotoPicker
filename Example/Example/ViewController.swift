@@ -29,6 +29,8 @@ class ViewController: UIViewController {
 //        let picker = PhotoPickerNavigationController()
         
         let picker = PhotoPickerNavigationController.nc
+        picker.config.rootTitle = "Root Title"
+        picker.config.mediaType = .image
         present(picker, animated: true, completion: nil)
     }
 }
