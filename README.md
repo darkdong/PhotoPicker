@@ -11,7 +11,7 @@ iOS 8.0, Swift 3.1
 1. Add `github "darkdong/PhotoPicker"` to your Cartfile
 2. Run `carthage update --platform ios`
 3. Add the framework to your project manually.
-4. `import PhotoPicker` in Swift file
+4. `import PhotoPicker` in Swift file or `import <PhotoPicker/PhotoPicker.h>` in Objective-C file
 
 ### Manual
 Download and add sources to your project
