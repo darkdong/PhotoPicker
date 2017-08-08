@@ -9,6 +9,8 @@
 import Photos
 
 open class PhotoGroupsController: UITableViewController {
+    @IBOutlet var cancelButtonItem: UIBarButtonItem!
+    
     public var groups: [PHAssetCollection] = []
     
     deinit {
@@ -19,6 +21,8 @@ open class PhotoGroupsController: UITableViewController {
         super.viewDidLoad()
         
         print(type(of: self), "viewDidLoad")
+        
+        cancelButtonItem.title = pickerConfig?.cancelTitle
         
         PHPhotoLibrary.requestAuthorization { (status) in
             switch status {

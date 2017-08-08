@@ -11,6 +11,8 @@ import Photos
 open class PhotoBrowserController: UIViewController {
     static public var interPageSpacing: CGFloat = 20
     
+    @IBOutlet var bottomLeftButtonItem: UIBarButtonItem!
+    @IBOutlet var doneButtonItem: UIBarButtonItem!
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var collectionToViewTrailingConstraint: NSLayoutConstraint!
 
@@ -28,6 +30,8 @@ open class PhotoBrowserController: UIViewController {
         super.viewDidLoad()
         
         print(type(of: self), "viewDidLoad")
+
+        doneButtonItem.title = pickerConfig?.doneTitle
 
         let interPageSpacing = PhotoBrowserController.interPageSpacing
         let layout = collectionView.collectionViewLayout as!  UICollectionViewFlowLayout

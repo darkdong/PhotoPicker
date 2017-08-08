@@ -9,11 +9,11 @@
 import Photos
 
 open class PhotoAssetsController: UICollectionViewController {
-    public var assets: [PHAsset] = []
     @IBOutlet var cancelButtonItem: UIBarButtonItem!
-    
     @IBOutlet var previewButtonItem: UIBarButtonItem!
     @IBOutlet var doneButtonItem: UIBarButtonItem!
+
+    public var assets: [PHAsset] = []
 
     var selectedAssets: [PHAsset] = [] {
         didSet {
@@ -31,6 +31,10 @@ open class PhotoAssetsController: UICollectionViewController {
         super.viewDidLoad()
         
         print(type(of: self), "viewDidLoad")
+        
+        cancelButtonItem.title = pickerConfig?.cancelTitle
+        previewButtonItem.title = pickerConfig?.previewTitle
+        doneButtonItem.title = pickerConfig?.doneTitle
         
         let layout = collectionView!.collectionViewLayout as!  UICollectionViewFlowLayout
         let spacing = pickerConfig!.interAssetSpacing

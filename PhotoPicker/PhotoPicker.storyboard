@@ -109,6 +109,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="cancelButtonItem" destination="Afj-Jh-fqQ" id="6aI-dy-pjB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IJP-jC-1HE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -267,8 +270,10 @@
                         <barButtonItem key="rightBarButtonItem" id="qXL-02-t8U"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="bottomLeftButtonItem" destination="3EH-on-1ww" id="Oke-Zp-JJY"/>
                         <outlet property="collectionToViewTrailingConstraint" destination="Qmu-Bd-FKp" id="Z9p-rn-2mF"/>
                         <outlet property="collectionView" destination="E3D-uo-GaI" id="HLt-AZ-ofd"/>
+                        <outlet property="doneButtonItem" destination="qtb-xG-7hX" id="lRN-9D-4D7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CMU-9N-CI7" userLabel="First Responder" sceneMemberID="firstResponder"/>

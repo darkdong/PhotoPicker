@@ -47,12 +47,17 @@ public class PhotoPickerNavigationController: UINavigationController {
     public static var nc: PhotoPickerNavigationController {
         let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)
         let picker = storyboard.instantiateInitialViewController() as! PhotoPickerNavigationController
+        picker.viewControllers[0].title = picker.config.rootTitle
         let assetsVC = storyboard.instantiateViewController(withIdentifier: storyboardAssetsControllerID)
         picker.pushViewController(assetsVC, animated: false)
         return picker
     }
     
-    public var config = PickerConfig()
+    public var config = PickerConfig() {
+        didSet {
+            viewControllers[0].title = config.rootTitle
+        }
+    }
     weak public var pickerDelegate: PhotoPickerDelegate?
     
     deinit {
