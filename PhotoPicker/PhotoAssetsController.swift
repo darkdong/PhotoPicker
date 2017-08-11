@@ -65,10 +65,6 @@ open class PhotoAssetsController: UICollectionViewController {
         navigationController?.toolbar.isTranslucent = false
         navigationController?.isToolbarHidden = false
     }
-
-    override open func viewDidLayoutSubviews() {
-        collectionView?.scrollToEnd(animated: false)
-    }
     
     open override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let vc = segue.destination as! PhotoBrowserController
