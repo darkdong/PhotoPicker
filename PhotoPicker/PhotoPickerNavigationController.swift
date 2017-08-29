@@ -61,7 +61,7 @@ public class PhotoPickerNavigationController: UINavigationController {
     weak public var pickerDelegate: PhotoPickerDelegate?
     
     deinit {
-        print(type(of: self), "deinit")
+        print(type(of: self), #function)
     }
 }
 

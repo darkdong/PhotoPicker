@@ -19,7 +19,7 @@ open class PhotoBrowserController: UIViewController {
     var assets: [PHAsset] = []
     
     deinit {
-        print(type(of: self), "deinit")
+        print(type(of: self), #function)
     }
 
     open override var prefersStatusBarHidden: Bool {
@@ -29,7 +29,7 @@ open class PhotoBrowserController: UIViewController {
     override open func viewDidLoad() {
         super.viewDidLoad()
         
-        print(type(of: self), "viewDidLoad")
+        print(type(of: self), #function)
 
         doneButtonItem.title = pickerConfig?.doneTitle
 

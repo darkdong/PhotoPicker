@@ -14,13 +14,13 @@ open class PhotoGroupsController: UITableViewController {
     public var groups: [PHAssetCollection] = []
     
     deinit {
-        print(type(of: self), "deinit")
+        print(type(of: self), #function)
     }
     
     override open func viewDidLoad() {
         super.viewDidLoad()
         
-        print(type(of: self), "viewDidLoad")
+        print(type(of: self), #function)
         
         cancelButtonItem.title = pickerConfig?.cancelTitle
         
@@ -55,6 +55,7 @@ open class PhotoGroupsController: UITableViewController {
         let vc = segue.destination as! PhotoAssetsController
         vc.title = group.localizedTitle
         vc.assets = assets
+        vc.shouldLoadData = false
     }
     
     //called on non-main queue

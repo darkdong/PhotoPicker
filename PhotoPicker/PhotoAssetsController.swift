@@ -14,6 +14,7 @@ open class PhotoAssetsController: UICollectionViewController {
     @IBOutlet var doneButtonItem: UIBarButtonItem!
 
     public var assets: [PHAsset] = []
+    public var shouldLoadData = true
 
     var selectedAssets: [PHAsset] = [] {
         didSet {
@@ -24,13 +25,13 @@ open class PhotoAssetsController: UICollectionViewController {
     }
     
     deinit {
-        print(type(of: self), "deinit")
+        print(type(of: self), #function)
     }
     
     override open func viewDidLoad() {
         super.viewDidLoad()
         
-        print(type(of: self), "viewDidLoad")
+        print(type(of: self), #function)
         
         cancelButtonItem.title = pickerConfig?.cancelTitle
         previewButtonItem.title = pickerConfig?.previewTitle
@@ -50,7 +51,9 @@ open class PhotoAssetsController: UICollectionViewController {
         PHPhotoLibrary.requestAuthorization { (status) in
             switch status {
             case .authorized: //3
-                self.loadData()
+                if self.shouldLoadData {
+                    self.loadData()
+                }
             default:
                 break
             }
@@ -73,32 +76,30 @@ open class PhotoAssetsController: UICollectionViewController {
     
     //called on non-main queue
     func loadData() {
-        if assets.isEmpty {
-            let result = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
-            if let cameraRoll = result.firstObject {
-                DispatchQueue.main.async { [weak self] in
-                    self?.title = cameraRoll.localizedTitle
-                }
-                let result = PHAsset.fetchAssets(in: cameraRoll, options: nil)
-                let mediaType = pickerConfig!.mediaType
-                result.enumerateObjects({ (asset, index, stop) in
-                    if mediaType == nil || asset.mediaType == mediaType {
-                        self.assets.append(asset)
-                    }
-                })
+        let result = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .smartAlbumUserLibrary, options: nil)
+        if let cameraRoll = result.firstObject {
+            DispatchQueue.main.async { [weak self] in
+                self?.title = cameraRoll.localizedTitle
             }
-
-            if !self.assets.isEmpty {
-                DispatchQueue.main.sync { [weak self] in
-                    // because reloadData is async, we can't call scrollToEnd immediateley
-                    // execution order is: begin, reloadData, dataSourceMethods, performBatchUpdates, end, performBatchUpdatesCompletion
-                    // thus we can call scrollToEnd in performBatchUpdates
-                    self?.collectionView?.reloadData()
-                    self?.collectionView?.performBatchUpdates({
-                        self?.collectionView?.scrollToEnd(animated: false)
-                    }, completion: { _ in
-                    })
+            let result = PHAsset.fetchAssets(in: cameraRoll, options: nil)
+            let mediaType = pickerConfig!.mediaType
+            result.enumerateObjects({ (asset, index, stop) in
+                if mediaType == nil || asset.mediaType == mediaType {
+                    self.assets.append(asset)
                 }
+            })
+        }
+        
+        if !self.assets.isEmpty {
+            DispatchQueue.main.sync { [weak self] in
+                // because reloadData is async, we can't call scrollToEnd immediateley
+                // execution order is: begin, reloadData, dataSourceMethods, performBatchUpdates, end, performBatchUpdatesCompletion
+                // thus we can call scrollToEnd in performBatchUpdates
+                self?.collectionView?.reloadData()
+                self?.collectionView?.performBatchUpdates({
+                    self?.collectionView?.scrollToEnd(animated: false)
+                }, completion: { _ in
+                })
             }
         }
     }
