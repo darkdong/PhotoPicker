@@ -46,7 +46,7 @@ extension ViewController: PhotoPickerDelegate {
     
     func picker(_ picker: PhotoPickerNavigationController, shouldSelectAsset: PHAsset, selectedAssets: [PHAsset]) -> Bool {
         //limit number of selections
-        if selectedAssets.count >= 2 {
+        if selectedAssets.count >= 5 {
             return false
         }
         return true

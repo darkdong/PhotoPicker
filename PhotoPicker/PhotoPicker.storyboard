@@ -142,15 +142,15 @@
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yy3-li-GNT">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         </imageView>
-                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected" translatesAutoresizingMaskIntoConstraints="NO" id="a75-Yy-QUo">
-                                            <rect key="frame" x="30" y="0.0" width="20" height="20"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deselected" highlightedImage="selected" translatesAutoresizingMaskIntoConstraints="NO" id="a75-Yy-QUo">
+                                            <rect key="frame" x="30" y="30" width="20" height="20"/>
                                         </imageView>
                                     </subviews>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="a75-Yy-QUo" firstAttribute="bottom" secondItem="Yy3-li-GNT" secondAttribute="bottom" id="30V-h2-D21"/>
                                     <constraint firstItem="Yy3-li-GNT" firstAttribute="top" secondItem="HUG-Oy-2BT" secondAttribute="top" id="L5D-BV-e8L"/>
                                     <constraint firstItem="Yy3-li-GNT" firstAttribute="leading" secondItem="HUG-Oy-2BT" secondAttribute="leading" id="Rop-FL-t9I"/>
-                                    <constraint firstItem="a75-Yy-QUo" firstAttribute="top" secondItem="Yy3-li-GNT" secondAttribute="top" id="SEc-My-SZJ"/>
                                     <constraint firstAttribute="bottom" secondItem="Yy3-li-GNT" secondAttribute="bottom" id="prE-5i-5xY"/>
                                     <constraint firstItem="a75-Yy-QUo" firstAttribute="trailing" secondItem="Yy3-li-GNT" secondAttribute="trailing" id="rs4-uq-Esc"/>
                                     <constraint firstAttribute="trailing" secondItem="Yy3-li-GNT" secondAttribute="trailing" id="yQu-hA-BTm"/>
@@ -282,6 +282,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="deselected" width="20" height="20"/>
         <image name="selected" width="20" height="20"/>
     </resources>
 </document>

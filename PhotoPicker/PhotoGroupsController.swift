@@ -120,7 +120,7 @@ open class PhotoGroupCell: UITableViewCell {
                 self?.coverImageview.image = image
             }
         } else {
-            coverImageview.image = config.placeholderImage
+            coverImageview.image = config.albumCoverImage
         }
         
         titleLabel.text = group.localizedTitle

@@ -25,8 +25,8 @@ public class PickerConfig: NSObject {
     public var previewTitle = "预览"
     
     // image
-    public var placeholderImage: UIImage? {
-        return UIImage(named: "placeholder")
+    public var albumCoverImage: UIImage? {
+        return #imageLiteral(resourceName: "album_cover")
     }
     
     // layout

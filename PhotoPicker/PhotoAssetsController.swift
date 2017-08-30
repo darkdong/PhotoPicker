@@ -159,15 +159,14 @@ open class PhotoAssetCell: UICollectionViewCell {
     @IBOutlet var assetImageView: UIImageView!
     @IBOutlet var selectedImageView: UIImageView!
 
-
     override open var isSelected: Bool {
         didSet {
-            selectedImageView.isHidden = !isSelected
+            selectedImageView.isHighlighted = isSelected
         }
     }
     
     open override func awakeFromNib() {
-        super.awakeFromNib()
+        super.awakeFromNib()        
     }
     
     public func reuse(with asset: PHAsset, assetSize: CGSize) {
@@ -178,5 +177,5 @@ open class PhotoAssetCell: UICollectionViewCell {
         PHImageManager.default().requestImage(for: asset, targetSize: assetSize, contentMode: .aspectFill, options: options) { [weak self] (image, info) in
             self?.assetImageView.image = image
         }
-    }    
+    }
 }
