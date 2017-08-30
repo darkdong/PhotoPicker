@@ -25,9 +25,9 @@ public class PickerConfig: NSObject {
     public var previewTitle = "预览"
     
     // image
-    public var albumCoverImage: UIImage? {
-        return #imageLiteral(resourceName: "album_cover")
-    }
+//    public var albumCoverImage: UIImage? {
+//        return UIImage(named: "album_cover", in: PhotoPickerNavigationController.bundle, compatibleWith: nil)
+//    }
     
     // layout
     public var numberOfAssetColumns = 4
