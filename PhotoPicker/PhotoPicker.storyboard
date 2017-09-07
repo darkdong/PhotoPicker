@@ -148,11 +148,11 @@
                                     </subviews>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="a75-Yy-QUo" firstAttribute="bottom" secondItem="Yy3-li-GNT" secondAttribute="bottom" id="30V-h2-D21"/>
+                                    <constraint firstItem="a75-Yy-QUo" firstAttribute="bottom" secondItem="Yy3-li-GNT" secondAttribute="bottom" constant="-4" id="30V-h2-D21"/>
                                     <constraint firstItem="Yy3-li-GNT" firstAttribute="top" secondItem="HUG-Oy-2BT" secondAttribute="top" id="L5D-BV-e8L"/>
                                     <constraint firstItem="Yy3-li-GNT" firstAttribute="leading" secondItem="HUG-Oy-2BT" secondAttribute="leading" id="Rop-FL-t9I"/>
                                     <constraint firstAttribute="bottom" secondItem="Yy3-li-GNT" secondAttribute="bottom" id="prE-5i-5xY"/>
-                                    <constraint firstItem="a75-Yy-QUo" firstAttribute="trailing" secondItem="Yy3-li-GNT" secondAttribute="trailing" id="rs4-uq-Esc"/>
+                                    <constraint firstItem="a75-Yy-QUo" firstAttribute="trailing" secondItem="Yy3-li-GNT" secondAttribute="trailing" constant="-4" id="rs4-uq-Esc"/>
                                     <constraint firstAttribute="trailing" secondItem="Yy3-li-GNT" secondAttribute="trailing" id="yQu-hA-BTm"/>
                                 </constraints>
                                 <connections>
