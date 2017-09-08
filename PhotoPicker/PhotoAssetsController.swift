@@ -8,6 +8,8 @@
 
 import Photos
 
+private let cellReuseIdentifier = "PhotoAssetCell"
+
 open class PhotoAssetsController: UICollectionViewController {
     @IBOutlet var cancelButtonItem: UIBarButtonItem!
     @IBOutlet var previewButtonItem: UIBarButtonItem!
@@ -47,7 +49,10 @@ open class PhotoAssetsController: UICollectionViewController {
         layout.itemSize = CGSize(width: itemLength, height: itemLength)
 
         collectionView?.allowsMultipleSelection = true
-
+        
+        let nibForCell = pickerConfig?.nibForAssetCell ?? UINib(nibName: "PhotoAssetCell", bundle: photoPickerBundle)
+        collectionView?.register(nibForCell, forCellWithReuseIdentifier: cellReuseIdentifier)
+        
         PHPhotoLibrary.requestAuthorization { (status) in
             switch status {
             case .authorized: //3
@@ -128,7 +133,7 @@ extension PhotoAssetsController {
     
     open override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let asset = assets[indexPath.row]
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoAssetCell", for: indexPath) as! PhotoAssetCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath) as! PhotoAssetCell
         let layout = collectionView.collectionViewLayout as!  UICollectionViewFlowLayout
         cell.reuse(with: asset, assetSize: layout.itemSize)
         return cell
@@ -157,25 +162,32 @@ extension PhotoAssetsController {
 
 open class PhotoAssetCell: UICollectionViewCell {
     @IBOutlet var assetImageView: UIImageView!
-    @IBOutlet var selectedImageView: UIImageView!
+    @IBOutlet var selectionImageView: UIImageView!
 
+    open var photoAssetImageView: UIImageView! {
+        return assetImageView
+    }
+    
+    open var photoSelectionImageView: UIImageView! {
+        return selectionImageView
+    }
+    
     override open var isSelected: Bool {
         didSet {
-            selectedImageView.isHighlighted = isSelected
+            photoSelectionImageView.isHighlighted = isSelected
         }
     }
     
-    open override func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()        
     }
     
-    public func reuse(with asset: PHAsset, assetSize: CGSize) {
+    open func reuse(with asset: PHAsset, assetSize: CGSize) {
 //        print(type(of: self), "reuse", assetImageView.frame.size)
-
         let options = PHImageRequestOptions()
         options.isSynchronous = true
         PHImageManager.default().requestImage(for: asset, targetSize: assetSize, contentMode: .aspectFill, options: options) { [weak self] (image, info) in
-            self?.assetImageView.image = image
+            self?.photoAssetImageView.image = image
         }
     }
 }

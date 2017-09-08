@@ -16,6 +16,7 @@
 		4295CC891F286B1B005238CE /* PhotoPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4295CC831F286B1B005238CE /* PhotoPicker.storyboard */; };
 		4295CC8A1F286B1B005238CE /* PhotoPickerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4295CC841F286B1B005238CE /* PhotoPickerNavigationController.swift */; };
 		4295CCAD1F2870DE005238CE /* Resource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4295CCAC1F2870DE005238CE /* Resource.xcassets */; };
+		42B2C8451F6290300015E756 /* PhotoAssetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42B2C8441F6290300015E756 /* PhotoAssetCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		4295CC831F286B1B005238CE /* PhotoPicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoPicker.storyboard; sourceTree = "<group>"; };
 		4295CC841F286B1B005238CE /* PhotoPickerNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerNavigationController.swift; sourceTree = "<group>"; };
 		4295CCAC1F2870DE005238CE /* Resource.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Resource.xcassets; sourceTree = "<group>"; };
+		42B2C8441F6290300015E756 /* PhotoAssetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoAssetCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				4295CC811F286B1B005238CE /* PhotoBrowserController.swift */,
 				4295CC7F1F286B1B005238CE /* Extension.swift */,
 				4295CC831F286B1B005238CE /* PhotoPicker.storyboard */,
+				42B2C8441F6290300015E756 /* PhotoAssetCell.xib */,
 				4295CCAC1F2870DE005238CE /* Resource.xcassets */,
 				4295CC771F286A67005238CE /* PhotoPicker.h */,
 				4295CC781F286A67005238CE /* Info.plist */,
@@ -149,6 +152,7 @@
 			files = (
 				4295CC891F286B1B005238CE /* PhotoPicker.storyboard in Resources */,
 				4295CCAD1F2870DE005238CE /* Resource.xcassets in Resources */,
+				42B2C8451F6290300015E756 /* PhotoAssetCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

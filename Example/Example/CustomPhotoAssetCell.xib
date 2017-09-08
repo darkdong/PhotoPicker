@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoAssetCell" id="fWr-2S-WgB" userLabel="CustomPhotoAssetCell" customClass="CustomPhotoAssetCell" customModule="Example" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cmf-AD-y9C" userLabel="Asset Image View">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deselected" highlightedImage="selected" translatesAutoresizingMaskIntoConstraints="NO" id="aVc-EA-93q" userLabel="Selection Image View">
+                        <rect key="frame" x="26" y="26" width="20" height="20"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Cmf-AD-y9C" firstAttribute="leading" secondItem="fWr-2S-WgB" secondAttribute="leading" id="D6I-kL-dcj"/>
+                <constraint firstItem="Cmf-AD-y9C" firstAttribute="top" secondItem="fWr-2S-WgB" secondAttribute="top" id="LBi-4j-OLt"/>
+                <constraint firstAttribute="trailing" secondItem="Cmf-AD-y9C" secondAttribute="trailing" id="Vj0-q0-Ejr"/>
+                <constraint firstAttribute="trailing" secondItem="aVc-EA-93q" secondAttribute="trailing" constant="4" id="gox-Tj-hgK"/>
+                <constraint firstAttribute="bottom" secondItem="aVc-EA-93q" secondAttribute="bottom" constant="4" id="iZ5-hO-sve"/>
+                <constraint firstAttribute="bottom" secondItem="Cmf-AD-y9C" secondAttribute="bottom" id="wdz-bn-KZT"/>
+            </constraints>
+            <connections>
+                <outlet property="assetImageView" destination="Cmf-AD-y9C" id="0ll-9D-V3U"/>
+                <outlet property="selectedImageView" destination="aVc-EA-93q" id="tWo-4k-lMB"/>
+            </connections>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="deselected" width="20" height="20"/>
+        <image name="selected" width="20" height="20"/>
+    </resources>
+</document>

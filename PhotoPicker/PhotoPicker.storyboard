@@ -121,7 +121,7 @@
         <scene sceneID="asv-ng-ooo">
             <objects>
                 <collectionViewController storyboardIdentifier="Assets" id="ePX-XB-Pfc" customClass="PhotoAssetsController" customModule="PhotoPicker" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="fKe-6g-ft2">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="fKe-6g-ft2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -131,36 +131,7 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoAssetCell" id="HUG-Oy-2BT" customClass="PhotoAssetCell" customModule="PhotoPicker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Yy3-li-GNT">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deselected" highlightedImage="selected" translatesAutoresizingMaskIntoConstraints="NO" id="a75-Yy-QUo">
-                                            <rect key="frame" x="30" y="30" width="20" height="20"/>
-                                        </imageView>
-                                    </subviews>
-                                </view>
-                                <constraints>
-                                    <constraint firstItem="a75-Yy-QUo" firstAttribute="bottom" secondItem="Yy3-li-GNT" secondAttribute="bottom" id="30V-h2-D21"/>
-                                    <constraint firstItem="Yy3-li-GNT" firstAttribute="top" secondItem="HUG-Oy-2BT" secondAttribute="top" id="L5D-BV-e8L"/>
-                                    <constraint firstItem="Yy3-li-GNT" firstAttribute="leading" secondItem="HUG-Oy-2BT" secondAttribute="leading" id="Rop-FL-t9I"/>
-                                    <constraint firstAttribute="bottom" secondItem="Yy3-li-GNT" secondAttribute="bottom" id="prE-5i-5xY"/>
-                                    <constraint firstItem="a75-Yy-QUo" firstAttribute="trailing" secondItem="Yy3-li-GNT" secondAttribute="trailing" id="rs4-uq-Esc"/>
-                                    <constraint firstAttribute="trailing" secondItem="Yy3-li-GNT" secondAttribute="trailing" id="yQu-hA-BTm"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="assetImageView" destination="Yy3-li-GNT" id="mNs-rG-TaA"/>
-                                    <outlet property="selectedImageView" destination="a75-Yy-QUo" id="Dik-Gb-KkM"/>
-                                </connections>
-                            </collectionViewCell>
-                        </cells>
+                        <cells/>
                         <connections>
                             <outlet property="dataSource" destination="ePX-XB-Pfc" id="6oV-Oa-8VK"/>
                             <outlet property="delegate" destination="ePX-XB-Pfc" id="GGx-0J-vFA"/>
@@ -281,8 +252,4 @@
             <point key="canvasLocation" x="1078" y="-63"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="deselected" width="20" height="20"/>
-        <image name="selected" width="20" height="20"/>
-    </resources>
 </document>

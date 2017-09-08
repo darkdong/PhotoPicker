@@ -13,6 +13,7 @@
 		4295CC9D1F286D96005238CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4295CC9B1F286D96005238CE /* Main.storyboard */; };
 		4295CC9F1F286D96005238CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4295CC9E1F286D96005238CE /* Assets.xcassets */; };
 		4295CCA21F286D96005238CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4295CCA01F286D96005238CE /* LaunchScreen.storyboard */; };
+		42B2C8471F6290800015E756 /* CustomPhotoAssetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42B2C8461F6290800015E756 /* CustomPhotoAssetCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		4295CCA31F286D96005238CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4295CCAA1F286DD2005238CE /* PhotoPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotoPicker.framework; path = "../../../Library/Developer/Xcode/DerivedData/PhotoPicker-erjdqrliavwckheubxwaeqxbapca/Build/Products/Debug-iphonesimulator/PhotoPicker.framework"; sourceTree = "<group>"; };
 		42A4983F1F2C2C2E0027F7DA /* PhotoPicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PhotoPicker.xcodeproj; path = ../PhotoPicker.xcodeproj; sourceTree = "<group>"; };
+		42B2C8461F6290800015E756 /* CustomPhotoAssetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomPhotoAssetCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				4295CC971F286D96005238CE /* AppDelegate.swift */,
 				4295CC991F286D96005238CE /* ViewController.swift */,
 				4295CC9B1F286D96005238CE /* Main.storyboard */,
+				42B2C8461F6290800015E756 /* CustomPhotoAssetCell.xib */,
 				4295CC9E1F286D96005238CE /* Assets.xcassets */,
 				4295CCA01F286D96005238CE /* LaunchScreen.storyboard */,
 				4295CCA31F286D96005238CE /* Info.plist */,
@@ -195,6 +198,7 @@
 			files = (
 				4295CCA21F286D96005238CE /* LaunchScreen.storyboard in Resources */,
 				4295CC9F1F286D96005238CE /* Assets.xcassets in Resources */,
+				42B2C8471F6290800015E756 /* CustomPhotoAssetCell.xib in Resources */,
 				4295CC9D1F286D96005238CE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

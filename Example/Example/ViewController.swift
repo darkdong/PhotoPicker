@@ -26,12 +26,34 @@ class ViewController: UIViewController {
         print("showPicker")
 //        let bundle = Bundle(identifier: "com.darkdong.PhotoPicker")
 //        let picker = UIStoryboard(name: "PhotoPicker", bundle: bundle).instantiateInitialViewController() as! PhotoPickerNavigationController
-        
-        let picker = PhotoPickerNavigationController.nc
-        picker.config.rootTitle = "Root Title"
-        picker.config.mediaType = .image
+        let config = PickerConfig()
+        config.rootTitle = "Root Title"
+        config.mediaType = .image
+        config.numberOfAssetColumns = 3
+//        config.nibForAssetCell = UINib(nibName: "CustomPhotoAssetCell", bundle: nil)
+        let picker = PhotoPickerNavigationController.nc(config: config)
         picker.pickerDelegate = self
         present(picker, animated: true, completion: nil)
+    }
+}
+
+class CustomPhotoAssetCell: PhotoAssetCell {
+    @IBOutlet var assetImageView: UIImageView!
+    @IBOutlet var selectedImageView: UIImageView!
+    
+    open override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        selectedImageView.image = #imageLiteral(resourceName: "deselected")
+        selectedImageView.highlightedImage = #imageLiteral(resourceName: "selected")
+    }
+    
+    override open var photoAssetImageView: UIImageView! {
+        return assetImageView
+    }
+    
+    override open var photoSelectionImageView: UIImageView! {
+        return selectedImageView
     }
 }
 

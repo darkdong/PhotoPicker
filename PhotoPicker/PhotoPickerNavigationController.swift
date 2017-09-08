@@ -8,6 +8,8 @@
 
 import Photos
 
+public let photoPickerBundle = Bundle(identifier: "com.darkdong.PhotoPicker")!
+
 @objc public protocol PhotoPickerDelegate {
     func picker(_ picker: PhotoPickerNavigationController, didSelectAssets assets: [PHAsset])
     @objc optional func pickerDidCancel(_ picker: PhotoPickerNavigationController)
@@ -32,6 +34,9 @@ public class PickerConfig: NSObject {
     // layout
     public var numberOfAssetColumns = 4
     public var interAssetSpacing: CGFloat = 2
+    
+    //custom UI
+    public var nibForAssetCell: UINib?
 }
 
 public class PhotoPickerNavigationController: UINavigationController {
@@ -40,24 +45,17 @@ public class PhotoPickerNavigationController: UINavigationController {
     public static let storyboardAssetsControllerID = "Assets"
     public static let storyboardBrowserControllerID = "Browser"
 
-    public static var bundle: Bundle? = {
-        return Bundle(identifier: "com.darkdong.PhotoPicker")
-    }()
-
-    public static var nc: PhotoPickerNavigationController {
-        let storyboard = UIStoryboard(name: storyboardName, bundle: bundle)
+    public static func nc(config: PickerConfig) -> PhotoPickerNavigationController {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: photoPickerBundle)
         let picker = storyboard.instantiateInitialViewController() as! PhotoPickerNavigationController
-        picker.viewControllers[0].title = picker.config.rootTitle
+        picker.config = config
+        picker.viewControllers[0].title = config.rootTitle
         let assetsVC = storyboard.instantiateViewController(withIdentifier: storyboardAssetsControllerID)
         picker.pushViewController(assetsVC, animated: false)
         return picker
     }
     
-    public var config = PickerConfig() {
-        didSet {
-            viewControllers[0].title = config.rootTitle
-        }
-    }
+    var config: PickerConfig!
     weak public var pickerDelegate: PhotoPickerDelegate?
     
     deinit {
