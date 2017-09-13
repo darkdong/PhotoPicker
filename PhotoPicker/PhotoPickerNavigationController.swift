@@ -14,6 +14,8 @@ public let photoPickerBundle = Bundle(identifier: "com.darkdong.PhotoPicker")!
     func picker(_ picker: PhotoPickerNavigationController, didSelectAssets assets: [PHAsset])
     @objc optional func pickerDidCancel(_ picker: PhotoPickerNavigationController)
     @objc optional func picker(_ picker: PhotoPickerNavigationController, shouldSelectAsset: PHAsset, selectedAssets: [PHAsset]) -> Bool
+    @objc optional func pickerDidLoad(_ picker: PhotoPickerNavigationController)
+    @objc optional func pickerDidUnload(_ picker: PhotoPickerNavigationController)
 }
 
 public class PickerConfig: NSObject {
@@ -58,8 +60,12 @@ public class PhotoPickerNavigationController: UINavigationController {
     var config: PickerConfig!
     weak public var pickerDelegate: PhotoPickerDelegate?
     
+    public override func viewDidLoad() {
+        pickerDelegate?.pickerDidLoad?(self)
+    }
+    
     deinit {
-        print(type(of: self), #function)
+        pickerDelegate?.pickerDidUnload?(self)
     }
 }
 

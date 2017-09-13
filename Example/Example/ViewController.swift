@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         config.rootTitle = "Root Title"
         config.mediaType = .image
         config.numberOfAssetColumns = 3
-//        config.nibForAssetCell = UINib(nibName: "CustomPhotoAssetCell", bundle: nil)
+        config.nibForAssetCell = UINib(nibName: "CustomPhotoAssetCell", bundle: nil)
         let picker = PhotoPickerNavigationController.nc(config: config)
         picker.pickerDelegate = self
         present(picker, animated: true, completion: nil)
