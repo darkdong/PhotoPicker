@@ -187,7 +187,8 @@ open class PhotoAssetCell: UICollectionViewCell {
         let options = PHImageRequestOptions()
         options.isSynchronous = true
         PHImageManager.default().requestImage(for: asset, targetSize: assetSize, contentMode: .aspectFill, options: options) { [weak self] (image, info) in
-            self?.photoAssetImageView.image = image
+			self?.photoAssetImageView.contentMode = .scaleAspectFill
+            self?.photoAssetImageView.image = image        
         }
     }
 }
