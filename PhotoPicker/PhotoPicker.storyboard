@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VGv-rs-9tt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VGv-rs-9tt">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
                 <navigationController storyboardIdentifier="PhotoPicker" automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="VGv-rs-9tt" customClass="PhotoPickerNavigationController" customModule="PhotoPicker" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jsg-e6-iMe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -171,7 +171,7 @@
         <!--Photo Browser Controller-->
         <scene sceneID="Nql-b0-nTw">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="S8Q-XA-zz0" customClass="PhotoBrowserController" customModule="PhotoPicker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="S8Q-XA-zz0" customClass="PhotoBrowserController" customModule="PhotoPicker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bcs-XM-VAC"/>
                         <viewControllerLayoutGuide type="bottom" id="5FD-Zg-hT3"/>
@@ -181,7 +181,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="E3D-uo-GaI">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                <rect key="frame" x="0.0" y="64" width="395" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XDL-Ug-GHw">
                                     <size key="itemSize" width="50" height="50"/>
@@ -198,19 +198,18 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kIX-To-B0q">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="30" height="50"/>
                                                 </imageView>
                                             </subviews>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="kIX-To-B0q" firstAttribute="leading" secondItem="ofS-mm-7Ze" secondAttribute="leading" id="DHn-xH-ffl"/>
-                                            <constraint firstItem="kIX-To-B0q" firstAttribute="trailing" secondItem="ofS-mm-7Ze" secondAttribute="trailing" id="feO-Ib-59o"/>
+                                            <constraint firstItem="kIX-To-B0q" firstAttribute="trailing" secondItem="ofS-mm-7Ze" secondAttribute="trailing" constant="-20" id="feO-Ib-59o"/>
                                             <constraint firstAttribute="bottom" secondItem="kIX-To-B0q" secondAttribute="bottom" id="idM-7n-spb"/>
                                             <constraint firstItem="kIX-To-B0q" firstAttribute="top" secondItem="ofS-mm-7Ze" secondAttribute="top" id="ww6-he-c6q"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="assetImageView" destination="kIX-To-B0q" id="Vs8-wD-gr4"/>
-                                            <outlet property="assetToCellTrailingConstraint" destination="feO-Ib-59o" id="qbz-NB-bOC"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -222,10 +221,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="E3D-uo-GaI" firstAttribute="trailing" secondItem="IKa-eX-YqL" secondAttribute="trailing" id="Qmu-Bd-FKp"/>
-                            <constraint firstItem="E3D-uo-GaI" firstAttribute="top" secondItem="IKa-eX-YqL" secondAttribute="top" id="kRS-4t-Xec"/>
+                            <constraint firstItem="E3D-uo-GaI" firstAttribute="trailing" secondItem="IKa-eX-YqL" secondAttribute="trailing" constant="20" id="Qmu-Bd-FKp"/>
+                            <constraint firstItem="5FD-Zg-hT3" firstAttribute="top" secondItem="E3D-uo-GaI" secondAttribute="bottom" id="Y4I-6d-5rI"/>
+                            <constraint firstItem="E3D-uo-GaI" firstAttribute="top" secondItem="bcs-XM-VAC" secondAttribute="bottom" id="klP-AJ-XDk"/>
                             <constraint firstItem="E3D-uo-GaI" firstAttribute="leading" secondItem="IKa-eX-YqL" secondAttribute="leading" id="mWj-vL-M9o"/>
-                            <constraint firstAttribute="bottom" secondItem="E3D-uo-GaI" secondAttribute="bottom" id="pW8-Py-4pd"/>
                         </constraints>
                     </view>
                     <toolbarItems>
@@ -237,12 +236,8 @@
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="Umm-nF-lnh">
-                        <barButtonItem key="rightBarButtonItem" id="qXL-02-t8U"/>
-                    </navigationItem>
                     <connections>
                         <outlet property="bottomLeftButtonItem" destination="3EH-on-1ww" id="Oke-Zp-JJY"/>
-                        <outlet property="collectionToViewTrailingConstraint" destination="Qmu-Bd-FKp" id="Z9p-rn-2mF"/>
                         <outlet property="collectionView" destination="E3D-uo-GaI" id="HLt-AZ-ofd"/>
                         <outlet property="doneButtonItem" destination="qtb-xG-7hX" id="lRN-9D-4D7"/>
                     </connections>

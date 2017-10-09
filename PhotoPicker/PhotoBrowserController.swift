@@ -9,12 +9,9 @@
 import Photos
 
 open class PhotoBrowserController: UIViewController {
-    static public var interPageSpacing: CGFloat = 20
-    
     @IBOutlet var bottomLeftButtonItem: UIBarButtonItem!
     @IBOutlet var doneButtonItem: UIBarButtonItem!
     @IBOutlet var collectionView: UICollectionView!
-    @IBOutlet var collectionToViewTrailingConstraint: NSLayoutConstraint!
 
     var assets: [PHAsset] = []
     
@@ -22,24 +19,21 @@ open class PhotoBrowserController: UIViewController {
         print(type(of: self), #function)
     }
 
-    open override var prefersStatusBarHidden: Bool {
-        return true
-    }
+//    open override var prefersStatusBarHidden: Bool {
+//        return true
+//    }
     
     override open func viewDidLoad() {
         super.viewDidLoad()
         
         print(type(of: self), #function)
 
+        title = pickerConfig?.previewTitle
         doneButtonItem.title = pickerConfig?.doneTitle
 
-        let interPageSpacing = PhotoBrowserController.interPageSpacing
         let layout = collectionView.collectionViewLayout as!  UICollectionViewFlowLayout
         layout.minimumLineSpacing = 0
         layout.minimumInteritemSpacing = 0
-        layout.itemSize = CGSize(width: view.frame.width + interPageSpacing, height: view.frame.height)
-
-        collectionToViewTrailingConstraint.constant = interPageSpacing
     }
     
     open override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +43,12 @@ open class PhotoBrowserController: UIViewController {
         
 //        navigationController?.isNavigationBarHidden = true
 //        navigationController?.isToolbarHidden = true
+    }
+    
+    open override func viewDidLayoutSubviews() {
+        let itemSize = collectionView.frame.size
+        let layout = collectionView.collectionViewLayout as!  UICollectionViewFlowLayout
+        layout.itemSize = itemSize
     }
     
     //MARK: - action
@@ -78,13 +78,6 @@ extension PhotoBrowserController: UICollectionViewDataSource, UICollectionViewDe
 
 open class PhotoBrowserCell: UICollectionViewCell {
     @IBOutlet var assetImageView: UIImageView!
-    @IBOutlet var assetToCellTrailingConstraint: NSLayoutConstraint!
-    
-    open override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        assetToCellTrailingConstraint.constant = -PhotoBrowserController.interPageSpacing
-    }
     
     public func reuse(with asset: PHAsset, assetSize: CGSize) {
 //        print(type(of: self), "reuse", assetImageView.frame.size)
