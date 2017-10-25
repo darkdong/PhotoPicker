@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4208E03B1F2C2F360041E37E /* PhotoPicker.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 42A498441F2C2C2E0027F7DA /* PhotoPicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		428B2ED11FA0544500EC486F /* PhotoPicker.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 428B2ED01FA0543E00EC486F /* PhotoPicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4295CC981F286D96005238CE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4295CC971F286D96005238CE /* AppDelegate.swift */; };
 		4295CC9A1F286D96005238CE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4295CC991F286D96005238CE /* ViewController.swift */; };
 		4295CC9D1F286D96005238CE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4295CC9B1F286D96005238CE /* Main.storyboard */; };
@@ -17,16 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4208E03C1F2C2F750041E37E /* PBXContainerItemProxy */ = {
+		428B2ECF1FA0543E00EC486F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 42A4983F1F2C2C2E0027F7DA /* PhotoPicker.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 4295CC731F286A67005238CE;
-			remoteInfo = PhotoPicker;
-		};
-		42A498431F2C2C2E0027F7DA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 42A4983F1F2C2C2E0027F7DA /* PhotoPicker.xcodeproj */;
+			containerPortal = 428B2ECB1FA0543E00EC486F /* PhotoPicker.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 4295CC741F286A67005238CE;
 			remoteInfo = PhotoPicker;
@@ -40,13 +33,14 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				4208E03B1F2C2F360041E37E /* PhotoPicker.framework in CopyFiles */,
+				428B2ED11FA0544500EC486F /* PhotoPicker.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		428B2ECB1FA0543E00EC486F /* PhotoPicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PhotoPicker.xcodeproj; path = ../PhotoPicker.xcodeproj; sourceTree = "<group>"; };
 		4295CC941F286D96005238CE /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4295CC971F286D96005238CE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4295CC991F286D96005238CE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,8 +48,6 @@
 		4295CC9E1F286D96005238CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4295CCA11F286D96005238CE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4295CCA31F286D96005238CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4295CCAA1F286DD2005238CE /* PhotoPicker.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotoPicker.framework; path = "../../../Library/Developer/Xcode/DerivedData/PhotoPicker-erjdqrliavwckheubxwaeqxbapca/Build/Products/Debug-iphonesimulator/PhotoPicker.framework"; sourceTree = "<group>"; };
-		42A4983F1F2C2C2E0027F7DA /* PhotoPicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = PhotoPicker.xcodeproj; path = ../PhotoPicker.xcodeproj; sourceTree = "<group>"; };
 		42B2C8461F6290800015E756 /* CustomPhotoAssetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomPhotoAssetCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +62,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		428B2ECC1FA0543E00EC486F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				428B2ED01FA0543E00EC486F /* PhotoPicker.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		4295CC8B1F286D96005238CE = {
 			isa = PBXGroup;
 			children = (
@@ -104,18 +104,9 @@
 		4295CCA91F286DD1005238CE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				42A4983F1F2C2C2E0027F7DA /* PhotoPicker.xcodeproj */,
-				4295CCAA1F286DD2005238CE /* PhotoPicker.framework */,
+				428B2ECB1FA0543E00EC486F /* PhotoPicker.xcodeproj */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		42A498401F2C2C2E0027F7DA /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				42A498441F2C2C2E0027F7DA /* PhotoPicker.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,7 +124,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				4208E03D1F2C2F750041E37E /* PBXTargetDependency */,
 			);
 			name = Example;
 			productName = Example;
@@ -153,6 +143,7 @@
 					4295CC931F286D96005238CE = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = PRZ5HR5F63;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -170,8 +161,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 42A498401F2C2C2E0027F7DA /* Products */;
-					ProjectRef = 42A4983F1F2C2C2E0027F7DA /* PhotoPicker.xcodeproj */;
+					ProductGroup = 428B2ECC1FA0543E00EC486F /* Products */;
+					ProjectRef = 428B2ECB1FA0543E00EC486F /* PhotoPicker.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -182,11 +173,11 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		42A498441F2C2C2E0027F7DA /* PhotoPicker.framework */ = {
+		428B2ED01FA0543E00EC486F /* PhotoPicker.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = PhotoPicker.framework;
-			remoteRef = 42A498431F2C2C2E0027F7DA /* PBXContainerItemProxy */;
+			remoteRef = 428B2ECF1FA0543E00EC486F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -216,14 +207,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		4208E03D1F2C2F750041E37E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = PhotoPicker;
-			targetProxy = 4208E03C1F2C2F750041E37E /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4295CC9B1F286D96005238CE /* Main.storyboard */ = {
@@ -350,7 +333,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.darkdong.PhotoPicker.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -364,7 +348,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.darkdong.PhotoPicker.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

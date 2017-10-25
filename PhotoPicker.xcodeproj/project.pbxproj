@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		420E51C81F39718600DFD6CF /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 420E51C71F39718600DFD6CF /* README.md */; };
 		4295CC791F286A67005238CE /* PhotoPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 4295CC771F286A67005238CE /* PhotoPicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4295CC851F286B1B005238CE /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4295CC7F1F286B1B005238CE /* Extension.swift */; };
 		4295CC861F286B1B005238CE /* PhotoAssetsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4295CC801F286B1B005238CE /* PhotoAssetsController.swift */; };
@@ -20,7 +19,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		420E51C71F39718600DFD6CF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4295CC741F286A67005238CE /* PhotoPicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PhotoPicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4295CC771F286A67005238CE /* PhotoPicker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoPicker.h; sourceTree = "<group>"; };
 		4295CC781F286A67005238CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -48,7 +46,6 @@
 		4295CC6A1F286A67005238CE = {
 			isa = PBXGroup;
 			children = (
-				420E51C71F39718600DFD6CF /* README.md */,
 				4295CC761F286A67005238CE /* PhotoPicker */,
 				4295CC751F286A67005238CE /* Products */,
 			);
@@ -123,7 +120,7 @@
 					4295CC731F286A67005238CE = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = PRZ5HR5F63;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -163,7 +160,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				420E51C81F39718600DFD6CF /* README.md in Sources */,
 				4295CC881F286B1B005238CE /* PhotoGroupsController.swift in Sources */,
 				4295CC851F286B1B005238CE /* Extension.swift in Sources */,
 				4295CC861F286B1B005238CE /* PhotoAssetsController.swift in Sources */,
@@ -294,7 +290,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -315,7 +312,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.darkdong.PhotoPicker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
