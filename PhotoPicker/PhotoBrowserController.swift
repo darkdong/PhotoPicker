@@ -84,6 +84,10 @@ open class PhotoBrowserCell: UICollectionViewCell {
 
         let options = PHImageRequestOptions()
         options.isSynchronous = true
+        options.isNetworkAccessAllowed = true	// allow to fetch image from iCloud
+		options.progressHandler = { progress, error, stop, info in
+			// download from iCloud handler
+		}
         PHImageManager.default().requestImage(for: asset, targetSize: assetSize, contentMode: .aspectFit, options: nil) { [weak self] (image, info) in
             self?.assetImageView.image = image
         }
