@@ -71,7 +71,9 @@ extension PhotoBrowserController: UICollectionViewDataSource, UICollectionViewDe
         let asset = assets[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoBrowserCell", for: indexPath) as! PhotoBrowserCell
         let layout = collectionView.collectionViewLayout as!  UICollectionViewFlowLayout
-        cell.reuse(with: asset, assetSize: layout.itemSize)
+        let scale = UIScreen.main.scale
+        let assetPixelSize = CGSize(width: layout.itemSize.width * scale, height: layout.itemSize.height * scale)
+        cell.reuse(with: asset, assetPixelSize: assetPixelSize)
         return cell
     }
 }
@@ -79,12 +81,11 @@ extension PhotoBrowserController: UICollectionViewDataSource, UICollectionViewDe
 open class PhotoBrowserCell: UICollectionViewCell {
     @IBOutlet var assetImageView: UIImageView!
     
-    public func reuse(with asset: PHAsset, assetSize: CGSize) {
+    public func reuse(with asset: PHAsset, assetPixelSize: CGSize) {
 //        print(type(of: self), "reuse", assetImageView.frame.size)
-
         let options = PHImageRequestOptions()
-        options.isSynchronous = true
-        PHImageManager.default().requestImage(for: asset, targetSize: assetSize, contentMode: .aspectFit, options: nil) { [weak self] (image, info) in
+        options.isNetworkAccessAllowed = true
+        PHImageManager.default().requestImage(for: asset, targetSize: assetPixelSize, contentMode: .aspectFit, options: options) { [weak self] (image, info) in
             self?.assetImageView.image = image
         }
     }

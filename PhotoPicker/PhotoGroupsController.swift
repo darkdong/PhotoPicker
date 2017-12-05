@@ -115,8 +115,11 @@ open class PhotoGroupCell: UITableViewCell {
         
         if let result = PHAsset.fetchKeyAssets(in: group, options: nil), let keyAsset = result.firstObject {
             let options = PHImageRequestOptions()
-            options.isSynchronous = true
-            PHImageManager.default().requestImage(for: keyAsset, targetSize: coverImageview.frame.size, contentMode: .aspectFill, options: options) { [weak self] (image, info) in
+            options.isNetworkAccessAllowed = true
+            let size = coverImageview.frame.size
+            let scale = UIScreen.main.scale
+            let targetSize = CGSize(width: size.width * scale, height: size.height * scale)
+            PHImageManager.default().requestImage(for: keyAsset, targetSize: targetSize, contentMode: .aspectFill, options: options) { [weak self] (image, info) in
                 self?.coverImageview.image = image
             }
         } else {

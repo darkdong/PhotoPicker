@@ -135,7 +135,9 @@ extension PhotoAssetsController {
         let asset = assets[indexPath.row]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseIdentifier, for: indexPath) as! PhotoAssetCell
         let layout = collectionView.collectionViewLayout as!  UICollectionViewFlowLayout
-        cell.reuse(with: asset, assetSize: layout.itemSize)
+        let scale = UIScreen.main.scale
+        let assetPixelSize = CGSize(width: layout.itemSize.width * scale, height: layout.itemSize.height * scale)
+        cell.reuse(with: asset, assetPixelSize: assetPixelSize)
         return cell
     }
     
@@ -182,11 +184,11 @@ open class PhotoAssetCell: UICollectionViewCell {
         super.awakeFromNib()        
     }
     
-    open func reuse(with asset: PHAsset, assetSize: CGSize) {
+    open func reuse(with asset: PHAsset, assetPixelSize: CGSize) {
 //        print(type(of: self), "reuse", assetImageView.frame.size)
         let options = PHImageRequestOptions()
-        options.isSynchronous = true
-        PHImageManager.default().requestImage(for: asset, targetSize: assetSize, contentMode: .aspectFill, options: options) { [weak self] (image, info) in
+        options.isNetworkAccessAllowed = true
+        PHImageManager.default().requestImage(for: asset, targetSize: assetPixelSize, contentMode: .aspectFill, options: options) { [weak self] (image, info) in
 			self?.photoAssetImageView.contentMode = .scaleAspectFill
             self?.photoAssetImageView.image = image        
         }
