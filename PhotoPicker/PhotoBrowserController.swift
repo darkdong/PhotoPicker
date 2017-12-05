@@ -84,7 +84,7 @@ open class PhotoBrowserCell: UICollectionViewCell {
     public func reuse(with asset: PHAsset, assetPixelSize: CGSize) {
 //        print(type(of: self), "reuse", assetImageView.frame.size)
         let options = PHImageRequestOptions()
-        options.isNetworkAccessAllowed = true
+        options.isNetworkAccessAllowed = true // allow to fetch image from iCloud
         PHImageManager.default().requestImage(for: asset, targetSize: assetPixelSize, contentMode: .aspectFit, options: options) { [weak self] (image, info) in
             self?.assetImageView.image = image
         }
