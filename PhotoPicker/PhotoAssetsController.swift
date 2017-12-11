@@ -166,6 +166,8 @@ open class PhotoAssetCell: UICollectionViewCell {
     @IBOutlet var assetImageView: UIImageView!
     @IBOutlet var selectionImageView: UIImageView!
 
+    private var asset: PHAsset?
+
     open var photoAssetImageView: UIImageView! {
         return assetImageView
     }
@@ -186,11 +188,17 @@ open class PhotoAssetCell: UICollectionViewCell {
     
     open func reuse(with asset: PHAsset, assetPixelSize: CGSize) {
 //        print(type(of: self), "reuse", assetImageView.frame.size)
+        self.asset = asset
         let options = PHImageRequestOptions()
         options.isNetworkAccessAllowed = true
         PHImageManager.default().requestImage(for: asset, targetSize: assetPixelSize, contentMode: .aspectFill, options: options) { [weak self] (image, info) in
-			self?.photoAssetImageView.contentMode = .scaleAspectFill
-            self?.photoAssetImageView.image = image        
+            guard let strongSelf = self else {
+                return
+            }
+            if strongSelf.asset == asset {
+                strongSelf.photoAssetImageView.contentMode = .scaleAspectFill
+                strongSelf.photoAssetImageView.image = image
+            }
         }
     }
 }

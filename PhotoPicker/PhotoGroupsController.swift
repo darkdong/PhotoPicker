@@ -106,13 +106,15 @@ open class PhotoGroupCell: UITableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var countLabel: UILabel!
     
+    private var group: PHAssetCollection?
+
     open override func awakeFromNib() {
         super.awakeFromNib()
     }
     
     open func reuse(with group: PHAssetCollection, config: PickerConfig) {
 //        print(type(of: self), "reuse", coverImageview.frame.size)
-        
+        self.group = group
         if let result = PHAsset.fetchKeyAssets(in: group, options: nil), let keyAsset = result.firstObject {
             let options = PHImageRequestOptions()
             options.isNetworkAccessAllowed = true
@@ -120,7 +122,12 @@ open class PhotoGroupCell: UITableViewCell {
             let scale = UIScreen.main.scale
             let targetSize = CGSize(width: size.width * scale, height: size.height * scale)
             PHImageManager.default().requestImage(for: keyAsset, targetSize: targetSize, contentMode: .aspectFill, options: options) { [weak self] (image, info) in
-                self?.coverImageview.image = image
+                guard let strongSelf = self else {
+                    return
+                }
+                if strongSelf.group == group {
+                    strongSelf.coverImageview.image = image
+                }
             }
         } else {
             coverImageview.image = nil

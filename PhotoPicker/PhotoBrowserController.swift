@@ -81,12 +81,20 @@ extension PhotoBrowserController: UICollectionViewDataSource, UICollectionViewDe
 open class PhotoBrowserCell: UICollectionViewCell {
     @IBOutlet var assetImageView: UIImageView!
     
+    private var asset: PHAsset?
+
     public func reuse(with asset: PHAsset, assetPixelSize: CGSize) {
 //        print(type(of: self), "reuse", assetImageView.frame.size)
+        self.asset = asset
         let options = PHImageRequestOptions()
-        options.isNetworkAccessAllowed = true // allow to fetch image from iCloud
+        options.isNetworkAccessAllowed = true
         PHImageManager.default().requestImage(for: asset, targetSize: assetPixelSize, contentMode: .aspectFit, options: options) { [weak self] (image, info) in
-            self?.assetImageView.image = image
+            guard let strongSelf = self else {
+                return
+            }
+            if strongSelf.asset == asset {
+                strongSelf.assetImageView.image = image
+            }
         }
     }
 }
