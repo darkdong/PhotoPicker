@@ -167,6 +167,7 @@ open class PhotoAssetCell: UICollectionViewCell {
     @IBOutlet var selectionImageView: UIImageView!
 
     private var asset: PHAsset?
+    private var imageRequestID: PHImageRequestID = PHInvalidImageRequestID
 
     open var photoAssetImageView: UIImageView! {
         return assetImageView
@@ -189,6 +190,7 @@ open class PhotoAssetCell: UICollectionViewCell {
     open func reuse(with asset: PHAsset, assetPixelSize: CGSize) {
 //        print(type(of: self), "reuse", assetImageView.frame.size)
         self.asset = asset
+        PHImageManager.default().cancelImageRequest(imageRequestID)
         let options = PHImageRequestOptions()
         options.isNetworkAccessAllowed = true
         PHImageManager.default().requestImage(for: asset, targetSize: assetPixelSize, contentMode: .aspectFill, options: options) { [weak self] (image, info) in
